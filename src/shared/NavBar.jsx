@@ -1,15 +1,16 @@
 import React from 'react';
 import logoImg from '../assets/logo/logo3.webp'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const itemsOption=<>
-      <li><a>It hello</a></li>
-      <li><a>Submenu 1</a></li>
-     <li><a>Submenu 2</a></li>
-      <li><a>Item 3</a></li>
+      <li className='font-bold text-xl '><Link to='/'>Home</Link></li>
+      <li className='font-bold text-xl '><Link to='/instructors'> Instructors</Link></li>
+      <li className='font-bold text-xl '><Link to='/classes'>Classes</Link></li>
+      <li className='font-bold text-xl '><Link to='/dashboard'>Dashbord</Link></li>
     </>
     return (
-    <div className="navbar bg-lime-200 px-12 py-8">
+    <div className="navbar bg-lime-200 px-12 py-4">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -19,7 +20,7 @@ const NavBar = () => {
         {itemsOption}
       </ul>
     </div>
-    <img src={logoImg} width={96} alt="" />
+    <img src={logoImg} width={96} className='hidden sm:inline md:static' alt="" />
     <a className="btn btn-ghost normal-case  font-extrabold text-3xl">OllO</a>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -27,8 +28,8 @@ const NavBar = () => {
      {itemsOption}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end ">
+    <Link className='px-6 font-bold text-xl text-white py-2 bg-lime-600' to="/login">Login</Link>
   </div>
 </div>
     );
