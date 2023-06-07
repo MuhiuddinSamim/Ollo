@@ -12,14 +12,14 @@ const ErrorPage = () => {
   const { View } = useLottie(options);
 
   return (
-    <div className="  my-auto">
+    <div className="my-20 flex flex-col items-center">
        
-      <div className="w-1/3 mx-auto">
+      <div className=" sm:w-4/5  md:w-1/3">
         {View}
         </div>
-        <div className="mx-auto w-1/3"> <Link to="/" className="mt-4 btn btn-primary ">
-          Back 
-        </Link></div>
+ 
+           <Link to="/" className="mt-4 w-1/3 mx-auto btn btn-warning">Back </Link>
+          
         
          
     
@@ -29,12 +29,6 @@ const ErrorPage = () => {
 
 export default ErrorPage;
 
-
-
-
-
-
-// import { Link, useRouteError } from 'react-router-dom';
 // import second from '../../assets/logo/1534860-middle.png';
 
 // const ErrorPage = () => {
