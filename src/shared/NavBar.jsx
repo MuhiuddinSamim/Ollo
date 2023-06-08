@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logoImg from '../assets/logo/logo3.webp'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Components/Authprovider/AuthProviders';
 
 const NavBar = () => {
+  const {user,logOut}=useContext(AuthContext);
+
+  const handleLogOut=()=>{
+    logOut()
+    .then(() => {}).
+    catch((error) => {console.log(error)});
+
+  }
+
+
     const itemsOption=<>
       <li className='font-bold text-xl  '><Link to='/'>Home</Link></li>
       <li className='font-bold text-xl '><Link to='/instructors'> Instructors</Link></li>
       <li className='font-bold text-xl '><Link to='/classes'>Classes</Link></li>
       <li className='font-bold text-xl '><Link to='/dashboard'>Dashbord</Link></li>
+
+
     </>
     return (
     <div className=" navbar md:fixed z-10 bg-opacity-90 bg-lime-200 md:px-12 sm:px-4 sm:py-1 md:py-1">
@@ -29,7 +42,17 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end ">
-    <Link className='font-bold  text-white py-1 md:py-2 px-4 bg-lime-600' to='/logIn'>Login</Link>
+
+ {
+  user ? 
+    <div className="tooltip flex ">
+  <img src={user.photoURL} className='w-8 mx-2  rounded-circle' data-tip={user.email}/>
+  <button onClick={handleLogOut} className='btn btn-warning'>LogOut</button>
+</div>
+    :
+    <Link to='/login' className="btn btn-info hover:btn-neutral">Login</Link>
+
+ }
   </div>
 </div>
     );

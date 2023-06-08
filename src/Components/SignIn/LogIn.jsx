@@ -1,21 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import {  NavLink } from 'react-router-dom';
+import {  Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Authprovider/AuthProviders';
+import Swal from 'sweetalert2'
+import second from '../../assets/logo/google-signin-button.png'
+
 
 
 const LogIn = () => {
-  const { register, handleSubmit, formState: { errors }  } = useForm();
+  const { register, handleSubmit, formState: { errors },reset  } = useForm();
+  const {logIn, googleLogIn}=useContext(AuthContext)
 
    const onSubmit = (data) => {
     console.log(data);
     // Handle form submission logic here
+    logIn(data.email,data.password)
+    .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    Swal.fire({
+   position: 'top-end',
+         icon: 'success',
+        title: 'You have logged in successfully',
+        showConfirmButton: false,
+       timer: 1500
+        })
+reset();
+    // ...
+  })
+  .catch((error) => {
+  
+    const errorMessage = error.message;
+  });
   };
+  const handleGoole=()=>{
+    googleLogIn()
+     .then((result) => {
+    const user = result.user;
+  }).catch((error) => {
+   const errorMessage = error.message;
+    console.log(errorMessage);
+  })
+}
 
     return (
         
     <div  className=" border border-gray-300 rounded px-2 bg-lime-200 h-screen flex flex-col justify-center items-center">
          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <div onSubmit={handleSubmit(onSubmit)} className="card-body  bg-lime-400">
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body  bg-lime-400">
         <h1 className='text-3xl text-center font-bold'>LogIn</h1>
         <div className="form-control">
           <label className="label">
@@ -39,7 +71,7 @@ const LogIn = () => {
             required: true,
             minLength: 6,
             maxLength: 20,
-            pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+            pattern: /(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
           })}
           placeholder="Password"
           className="input input-bordered"
@@ -55,7 +87,7 @@ const LogIn = () => {
         )}
         {errors.password?.type === 'pattern' && (
           <p className="text-red-600">
-            Password must have one uppercase, one lowercase, one number, and one special character.
+            Password must have one letter, one number, and one special character.
           </p>
         )}
           <label className="label">
@@ -64,10 +96,16 @@ const LogIn = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+         <button type="submit" className="btn btn-primary">
+              LogIn
+            </button>
         </div>
-      </div>
+        <img onClick={handleGoole} src={second} className='w-36 mx-auto' alt="" />
+
+      </form>
     </div>
+           <Link to="/" className="mt-4 w-1/7 mx-auto btn btn-warning">Home </Link>
+
     </div>
    
  
