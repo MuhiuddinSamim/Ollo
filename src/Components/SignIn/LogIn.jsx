@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const LogIn = () => {
     return (
         
-    
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    <div  className="border border-gray-300 rounded p-6 bg-lime-200 h-screen flex flex-col justify-center items-center">
+         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
+        <h1 className='text-3xl text-center font-bold'>LogIn</h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -18,7 +20,8 @@ const LogIn = () => {
           </label>
           <input type="text" placeholder="password" className="input input-bordered" />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <p>New to OllO?Please <span className='font-bold'><NavLink to='/signUp'>SignUp</NavLink></span></p>
+
           </label>
         </div>
         <div className="form-control mt-6">
@@ -26,6 +29,8 @@ const LogIn = () => {
         </div>
       </div>
     </div>
+    </div>
+   
  
     );
 };
