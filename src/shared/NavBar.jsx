@@ -29,7 +29,7 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end ">
-    <Link className='px-6 font-bold text-xl text-white py-2 bg-lime-600' to="/login">Login</Link>
+    <Link className='px-6 font-bold text-xl text-white py-2 bg-lime-600' to='/logIn'>Login</Link>
   </div>
 </div>
     );
