@@ -1,9 +1,10 @@
 import React from 'react';
+import Slider from './Slider';
 
 const Home = () => {
     return (
         <div>
-            this is honmemmmmmmmmmmmmmmmmmm
+            <Slider></Slider>
         </div>
     );
 };

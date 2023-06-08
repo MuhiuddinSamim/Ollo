@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const LogIn = () => {
     return (
         
-    <div  className="border border-gray-300 rounded p-6 bg-lime-200 h-screen flex flex-col justify-center items-center">
+    <div  className=" border border-gray-300 rounded p-6 bg-lime-200 h-screen flex flex-col justify-center items-center">
          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
         <h1 className='text-3xl text-center font-bold'>LogIn</h1>
