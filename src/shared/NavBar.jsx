@@ -10,7 +10,7 @@ const NavBar = () => {
       <li className='font-bold text-xl '><Link to='/dashboard'>Dashbord</Link></li>
     </>
     return (
-    <div className=" navbar fixed z-10 bg-opacity-90 bg-lime-200 px-12 py-4">
+    <div className=" navbar md:fixed z-10 bg-opacity-90 bg-lime-200 md:px-12 sm:px-4 sm:py-1 md:py-1">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,7 +21,7 @@ const NavBar = () => {
       </ul>
     </div>
     <img src={logoImg} width={96} className='hidden sm:inline md:static' alt="" />
-    <a className="btn btn-ghost normal-case  font-extrabold text-3xl">OllO</a>
+    <a className="btn btn-ghost normal-case  font-extrabold md:text-3xl">OllO</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -29,7 +29,7 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end ">
-    <Link className='px-6 font-bold text-xl text-white py-2 bg-lime-600' to='/logIn'>Login</Link>
+    <Link className='font-bold  text-white py-1 md:py-2 px-4 bg-lime-600' to='/logIn'>Login</Link>
   </div>
 </div>
     );
