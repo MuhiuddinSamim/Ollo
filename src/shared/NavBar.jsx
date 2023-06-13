@@ -37,6 +37,10 @@ const NavBar = () => {
       <li className="font-bold text-xl ">
         <Link to="/dashboard">Dashbord</Link>
       </li>
+      
+       <li className="font-bold text-xl ">
+        <Link to="/addClasses">Add-A-Class</Link>
+      </li>
     </>
   );
   return (
